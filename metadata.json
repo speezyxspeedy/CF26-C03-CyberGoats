@@ -1,0 +1,6 @@
+{
+  "name": "Cryptographic Agility and Post-Quantum Migration Graph",
+  "description": "Cryptographic agility and post-quantum migration graph engine for CBOM asset discovery, HNDL risk scoring, dependency graph visualization, and constraint-aware NIST FIPS 203/204/205 migration planning.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,169 @@
+@import "tailwindcss";
+@import "@xyflow/react/dist/style.css";
+
+@layer base {
+  :root {
+    --bg-canvas: #090d16;
+    --bg-panel: #0d1117;
+    --bg-card: #161b22;
+    --bg-card-subtle: #1c2128;
+    --border-default: #30363d;
+    --border-subtle: #21262d;
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
+    --text-muted: #6e7681;
+  }
+
+  body {
+    background-color: #090d16;
+    color: #f0f6fc;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    overflow-x: hidden;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Custom glowing borders & animations for quantum status */
+@keyframes pulse-vulnerable {
+  0%, 100% {
+    box-shadow: 0 0 0 1px #da3633, 0 0 12px -2px rgba(248, 81, 73, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 1px #f85149, 0 0 20px 2px rgba(248, 81, 73, 0.65);
+  }
+}
+
+@keyframes pulse-hybrid {
+  0%, 100% {
+    box-shadow: 0 0 0 1px #9e6a03, 0 0 12px -2px rgba(210, 153, 34, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 1px #d29922, 0 0 20px 2px rgba(210, 153, 34, 0.65);
+  }
+}
+
+@keyframes pulse-safe {
+  0%, 100% {
+    box-shadow: 0 0 0 1px #238636, 0 0 12px -2px rgba(63, 185, 80, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 1px #3fb950, 0 0 20px 2px rgba(63, 185, 80, 0.65);
+  }
+}
+
+@keyframes pulse-blocker {
+  0%, 100% {
+    box-shadow: 0 0 0 2px #f85149, 0 0 16px rgba(248, 81, 73, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 2px #ff7b72, 0 0 26px rgba(255, 123, 114, 0.85);
+  }
+}
+
+.glow-vulnerable {
+  animation: pulse-vulnerable 3s infinite ease-in-out;
+}
+
+.glow-hybrid {
+  animation: pulse-hybrid 3s infinite ease-in-out;
+}
+
+.glow-safe {
+  animation: pulse-safe 3s infinite ease-in-out;
+}
+
+.glow-blocker {
+  animation: pulse-blocker 2s infinite ease-in-out;
+}
+
+/* Q-Day Compromise & Blast Radius — violent red shockwave/glitch effect */
+@keyframes qday-shockwave {
+  0% {
+    box-shadow: 0 0 0 0 rgba(248, 81, 73, 0.9), 0 0 0 1px #ff2d2d;
+  }
+  60% {
+    box-shadow: 0 0 0 14px rgba(248, 81, 73, 0), 0 0 24px 4px rgba(255, 45, 45, 0.75);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(248, 81, 73, 0), 0 0 0 1px #ff2d2d;
+  }
+}
+
+@keyframes qday-glitch {
+  0%, 100% {
+    transform: translate(0, 0);
+    filter: hue-rotate(0deg);
+  }
+  20% {
+    transform: translate(-1.5px, 0.5px);
+    filter: hue-rotate(-8deg);
+  }
+  40% {
+    transform: translate(1.5px, -0.5px);
+    filter: hue-rotate(8deg);
+  }
+  60% {
+    transform: translate(-1px, 0);
+    filter: hue-rotate(-4deg);
+  }
+  80% {
+    transform: translate(1px, 0.5px);
+    filter: hue-rotate(4deg);
+  }
+}
+
+.glow-compromised {
+  animation: qday-shockwave 1.1s infinite cubic-bezier(0.2, 0.8, 0.2, 1), qday-glitch 0.35s infinite linear;
+  border-color: #ff2d2d !important;
+}
+
+/* React Flow customizations */
+.react-flow__background {
+  background-color: #090d16;
+}
+
+.react-flow__controls {
+  background: #0d1117 !important;
+  border: 1px solid #30363d !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+.react-flow__controls-button {
+  background: #161b22 !important;
+  border-bottom: 1px solid #30363d !important;
+  color: #8b949e !important;
+  fill: #8b949e !important;
+}
+
+.react-flow__controls-button:hover {
+  background: #21262d !important;
+  color: #f0f6fc !important;
+  fill: #f0f6fc !important;
+}
+
+.react-flow__minimap {
+  background-color: #0d1117 !important;
+  border: 1px solid #30363d !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
